@@ -77,7 +77,6 @@ export const projects: Project[] = [
     category: "Fintech App",
     year: "2025",
     caseStudyUrl: "/case-studies/fynt",
-  }
     hasFullCaseStudy: false,
     gallery: [
       {
@@ -112,4 +111,5 @@ export const projects: Project[] = [
       },
     ],
   },
+      
 ]
