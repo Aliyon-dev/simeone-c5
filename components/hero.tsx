@@ -15,13 +15,13 @@ export function Hero({
   description = [
     "I'm a UX designer passionate about creating meaningful digital experiences that solve real problems and delight users.",
   ],
-  currentCompany = "Acme Corp",
-  previousCompanies = ["Design Studio", "Creative Agency"],
+  currentCompany = "Illusion Labs",
+  previousCompanies = ["Dufuna Tech", "ZitFuse"],
 }: HeroProps) {
   const stats = [
-    { icon: <Users className="w-8 h-8" />, value: "50+", label: "Projects Completed" },
+    { icon: <Users className="w-8 h-8" />, value: "20+", label: "Projects Completed" },
     { icon: <Coffee className="w-8 h-8" />, value: "1000+", label: "Cups of Coffee" },
-    { icon: <Award className="w-8 h-8" />, value: "6+", label: "Years Experience" },
+    { icon: <Award className="w-8 h-8" />, value: "4+", label: "Years Experience" },
     { icon: <Zap className="w-8 h-8" />, value: "∞", label: "Ideas Generated" },
   ]
 
@@ -73,7 +73,7 @@ export function Hero({
                   <div className="w-8 h-8 bg-white"></div>
                 </div>
                 <div>
-                  <h3 className="font-black text-lg uppercase tracking-wide text-black">Alex Morgan</h3>
+                  <h3 className="font-black text-lg uppercase tracking-wide text-black">Aliyon Tembo</h3>
                   <p className="font-bold text-black">UX Designer</p>
                 </div>
               </div>

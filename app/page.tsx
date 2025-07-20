@@ -19,7 +19,7 @@ export default function Portfolio() {
       transition={{ duration: 0.8 }}
     >
       {/* Header */}
-      <Header designerName="Alex Morgan" title="Designer" />
+      <Header designerName="Aliyon" title="Designer" />
 
       {/* Hero Section */}
       <Hero
@@ -27,8 +27,8 @@ export default function Portfolio() {
         description={[
           "I'm a UX designer passionate about creating meaningful digital experiences that solve real problems and delight users.",
         ]}
-        currentCompany="Acme Corp"
-        previousCompanies={["Design Studio", "Creative Agency"]}
+        currentCompany="ZitFuse"
+        previousCompanies={["Illusion Labs", "Creative Agency"]}
       />
 
       {/* Work Section */}
@@ -39,14 +39,7 @@ export default function Portfolio() {
       />
 
       {/* About Section */}
-      <AboutSection
-        title="About"
-        paragraphs={[
-          "I'm a UX designer with 6+ years of experience creating digital products that people love to use. My approach combines user research, strategic thinking, and visual design to solve complex problems.",
-          "When I'm not designing, you can find me exploring new coffee shops, hiking local trails, or experimenting with new design tools and techniques.",
-        ]}
-        profileImageAlt="Alex Morgan - UX Designer"
-      />
+      <AboutSection/>
 
       {/* Spotify Section */}
       <section id="music" className="px-8 py-32 md:px-16 lg:px-24 bg-gray-50">

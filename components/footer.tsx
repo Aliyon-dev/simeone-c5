@@ -13,7 +13,7 @@ interface FooterProps {
 }
 
 export function Footer({
-  designerName = "Alex Morgan",
+  designerName = "Aliyon Tembo",
   year = new Date().getFullYear(),
   links = [
     { label: "Work", href: "#work" },
@@ -32,7 +32,7 @@ export function Footer({
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
           <p className="text-white font-black text-lg uppercase tracking-wider">
-            © {year} {designerName}. All rights reserved.
+            © {year} Aliyon Tembo. All rights reserved.
           </p>
         </motion.div>
         <div className="flex items-center gap-8">

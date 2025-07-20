@@ -2,36 +2,37 @@ import type { Project } from "@/types/portfolio"
 
 export const projects: Project[] = [
   {
-    id: "financeflow",
-    title: "FinanceFlow Banking App",
+    id: "Zitfuse",
+    title: "ZitFuse E-learning Mobile App",
     description:
-      "Redesigned the mobile banking experience to reduce transaction time by 60% and increase user satisfaction scores. Led user research, prototyping, and usability testing with a focus on accessibility and speed.",
+      "Redesigned the mobile E-learning experience for University Students to reduce transaction time by 60% and increase user satisfaction scores. Led user research, prototyping, and usability testing with a focus on accessibility and speed.",
     image: "/placeholder.svg?height=400&width=600",
-    imageAlt: "FinanceFlow mobile app interface",
+    imageAlt: "ZitFuse mobile app interface",
     category: "Mobile App",
     year: "2024",
-    caseStudyUrl: "/case-studies/financeflow",
+    caseStudyUrl: "/projects/zitfuse",
   },
   {
-    id: "ecomarket",
-    title: "EcoMarket Shopping Platform",
+    id: "smartcast",
+    title: "SmartCast Voting System",
     description:
-      "Created an end-to-end shopping experience focused on sustainability. Implemented features that help users make eco-conscious purchasing decisions while maintaining high conversion rates and user engagement.",
-    image: "/placeholder.svg?height=400&width=600",
-    imageAlt: "EcoMarket dashboard interface",
-    category: "Web Platform",
-    year: "2023",
-    caseStudyUrl: "/case-studies/ecomarket",
+      "Developed a secure, decentralized voting system that leverages blockchain to ensure transparency, auditability, and voter anonymity in school and organizational elections.",
+    image: "/smart-cast.jpg?height=400&width=600",
+    imageAlt: "SmartCast voting interface",
+    category: "Blockchain Application",
+    year: "2025",
+    caseStudyUrl: "/case-studies/smartcast",
   },
+  
   {
-    id: "teamsync",
-    title: "TeamSync Collaboration Tool",
+    id: "fynt",
+    title: "Fynt Personal Finance Tracker",
     description:
-      "Designed a comprehensive project management tool that increased team productivity by 40%. Focused on intuitive workflows and seamless cross-platform experience with real-time collaboration features.",
-    image: "/placeholder.svg?height=400&width=600",
-    imageAlt: "TeamSync dashboard interface",
-    category: "SaaS Platform",
-    year: "2023",
-    caseStudyUrl: "/case-studies/teamsync",
-  },
+      "Built a lightweight personal finance tool that helps users track income, expenses, and savings goals with visual insights and budgeting recommendations powered by AI.",
+    image: "/Fynt.jpg?height=400&width=600",
+    imageAlt: "Fynt finance tracking dashboard",
+    category: "Fintech App",
+    year: "2025",
+    caseStudyUrl: "/case-studies/fynt",
+  }
 ]

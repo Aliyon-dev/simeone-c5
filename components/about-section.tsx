@@ -15,11 +15,12 @@ interface AboutSectionProps {
 export function AboutSection({
   title = "About",
   paragraphs = [
-    "I'm a UX designer with 6+ years of experience creating digital products that people love to use. My approach combines user research, strategic thinking, and visual design to solve complex problems.",
-    "When I'm not designing, you can find me exploring new coffee shops, hiking local trails, or experimenting with new design tools and techniques.",
+    "I'm a Computer Engineering student, product builder, and UX enthusiast with a strong focus on solving real-world problems using technology. I’ve led and contributed to multiple projects ranging from smart systems and fintech tools to education platforms and decentralized apps.",
+    "When I’m not coding or designing, I’m probably mentoring peers, exploring the future of AI in Africa, or working on initiatives that combine usability with impact. I believe in building products that are fast, simple, and meaningful.",
   ],
-  profileImage = "/placeholder.svg?height=600&width=500",
-  profileImageAlt = "UX Designer Profile",
+profileImage = "/aliyon.jpeg?height=600&width=500",
+profileImageAlt = "Aliyon Tembo - Computer Engineer & Product Builder",
+
 }: AboutSectionProps) {
   const socialLinks = [
     { platform: "email", icon: <Mail className="w-6 h-6" />, url: "mailto:hello@designer.com" },

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowUpRight } from "lucide-react"
 import { motion } from "framer-motion"
 import type { Project } from "@/types/portfolio"
-
+import { useRouter } from "next/navigation"
 interface ProjectCardProps {
   project: Project
   index: number
@@ -13,6 +13,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const isEven = index % 2 === 0
+  const router = useRouter();
 
   return (
     <motion.div
@@ -65,7 +66,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <Button className="bg-white text-black border-4 border-black font-black px-8 py-4 text-lg uppercase tracking-wide shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-300 transition-all group">
+            <Button onClick={()=>{
+              if(project.caseStudyUrl){
+                router.push("/projects/zitfuse")
+              }
+            }} className="bg-white text-black border-4 border-black font-black px-8 py-4 text-lg uppercase tracking-wide shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-300 transition-all group">
               View Case Study
               <ArrowUpRight className="w-6 h-6 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </Button>
@@ -80,6 +85,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           <Image
             src={project.image || "/placeholder.svg"}
             alt={project.imageAlt}
+            objectFit="contain"
             width={600}
             height={400}
             className="w-full h-full object-cover"
