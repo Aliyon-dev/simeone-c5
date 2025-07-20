@@ -66,13 +66,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <Button onClick={()=>{
-              if(project.caseStudyUrl){
-                router.push("/projects/zitfuse")
-              }
-            }} className="bg-white text-black border-4 border-black font-black px-8 py-4 text-lg uppercase tracking-wide shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-300 transition-all group">
-              View Case Study
-              <ArrowUpRight className="w-6 h-6 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            <Button
+              className="bg-white text-black border-4 border-black font-black px-8 py-4 text-lg uppercase tracking-wide shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-300 transition-all group"
+              asChild
+            >
+              <a href={project.hasFullCaseStudy ? project.caseStudyUrl : `#${project.id}-gallery`}>
+                {project.hasFullCaseStudy ? "View Case Study" : "View Gallery"}
+                <ArrowUpRight className="w-6 h-6 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </a>
             </Button>
           </motion.div>
         </motion.div>

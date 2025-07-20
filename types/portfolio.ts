@@ -7,6 +7,15 @@ export interface Project {
   category: string
   year: string
   caseStudyUrl?: string
+  gallery?: GalleryImage[]
+  hasFullCaseStudy?: boolean
+}
+
+export interface GalleryImage {
+  src: string
+  alt: string
+  caption?: string
+  category?: string
 }
 
 export interface Badge {

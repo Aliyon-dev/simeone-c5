@@ -9,6 +9,7 @@ import { Footer } from "@/components/footer"
 import { projects } from "@/data/portfolio-data"
 import { currentTrack, designPlaylists, topTracks } from "@/data/spotify-data"
 import { motion } from "framer-motion"
+import { GallerySection } from "@/components/gallery-section"
 
 export default function Portfolio() {
   return (
@@ -40,6 +41,9 @@ export default function Portfolio() {
 
       {/* About Section */}
       <AboutSection/>
+
+      {/* Gallery Section */}
+      <GallerySection projects={projects} />
 
       {/* Spotify Section */}
       <section id="music" className="px-8 py-32 md:px-16 lg:px-24 bg-gray-50">
