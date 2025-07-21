@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowUpRight } from "lucide-react"
 import { motion } from "framer-motion"
 import type { Project } from "@/types/portfolio"
-
+import { useRouter } from "next/navigation"
 interface ProjectCardProps {
   project: Project
   index: number
@@ -13,6 +13,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const isEven = index % 2 === 0
+  const router = useRouter();
 
   return (
     <motion.div
@@ -85,6 +86,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           <Image
             src={project.image || "/placeholder.svg"}
             alt={project.imageAlt}
+            objectFit="contain"
             width={600}
             height={400}
             className="w-full h-full object-cover"

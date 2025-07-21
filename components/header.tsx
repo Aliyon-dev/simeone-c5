@@ -9,7 +9,7 @@ interface HeaderProps {
   title?: string
 }
 
-export function Header({ designerName = "Alex Morgan", title = "Designer" }: HeaderProps) {
+export function Header({ designerName = "Aliyon", title = "Designer" }: HeaderProps) {
   return (
     <motion.header
       initial={{ y: -20, opacity: 0 }}

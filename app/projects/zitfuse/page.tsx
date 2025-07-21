@@ -26,7 +26,7 @@ export default function FinanceFlowProject() {
       description: "Understanding user pain points and market opportunities in mobile banking.",
       icon: <Search className="w-8 h-8" />,
       details: [
-        "Conducted 15 user interviews with existing banking app users",
+        "Conducted 15 user interviews with Students at the CopperBelt University Students",
         "Analyzed competitor apps and identified key gaps",
         "Created user personas based on research findings",
         "Mapped current user journey and pain points",
@@ -72,9 +72,9 @@ export default function FinanceFlowProject() {
 
   const metrics = [
     {
-      value: "60%",
-      label: "Faster Transactions",
-      description: "Reduced average transaction time from 45s to 18s",
+      value: "400%",
+      label: "User retentions & Growth",
+      description: "Increased user base from a mere 100 to over 4000+ students",
     },
     {
       value: "4.8★",
@@ -102,25 +102,43 @@ export default function FinanceFlowProject() {
   ]
 
   const personas = [
-    {
-      name: "Sarah Chen",
-      age: "28",
-      occupation: "Marketing Manager",
-      bio: "Busy professional who values efficiency and speed in her banking tasks.",
-      goals: ["Quick money transfers", "Easy expense tracking", "Mobile-first experience"],
-      frustrations: ["Slow app performance", "Complex navigation", "Poor customer support"],
-      avatar: "/placeholder.svg?height=80&width=80",
-    },
-    {
-      name: "Mike Rodriguez",
-      age: "35",
-      occupation: "Small Business Owner",
-      bio: "Entrepreneur who needs robust banking features for personal and business use.",
-      goals: ["Business account management", "Detailed transaction history", "Integration with accounting tools"],
-      frustrations: ["Limited business features", "Confusing fee structure", "Lack of real-time notifications"],
-      avatar: "/placeholder.svg?height=80&width=80",
-    },
-  ]
+  {
+    name: "Mukula Chikonde",
+    age: "19",
+    occupation: "First-Year University Student",
+    bio: "A tech-savvy student who values quick access to course materials and a smooth mobile learning experience.",
+    goals: [
+      "Access lecture videos and notes instantly",
+      "Stay updated with class schedules and announcements",
+      "Use a mobile-friendly platform for on-the-go studying",
+    ],
+    frustrations: [
+      "Slow-loading content",
+      "Disorganized course layout",
+      "Limited offline access to resources",
+    ],
+    avatar: "/placeholder.svg?height=80&width=80",
+  },
+  {
+    name: "Mike Rodriguez",
+    age: "35",
+    occupation: "Part-Time Student & Working Professional",
+    bio: "A busy professional pursuing a degree while managing work commitments. Needs flexibility and clarity in learning.",
+    goals: [
+      "Learn at his own pace through pre-recorded sessions",
+      "Track progress and upcoming deadlines",
+      "Easily download and organize materials for offline use",
+    ],
+    frustrations: [
+      "No progress tracking dashboard",
+      "Unclear module structure",
+      "Lack of reminders or notifications for deadlines",
+    ],
+    avatar: "/placeholder.svg?height=80&width=80",
+  },
+]
+
+
 
   const journeySteps = [
     {
@@ -275,26 +293,26 @@ export default function FinanceFlowProject() {
 
   const teamData = [
     {
-      name: "Alex Morgan",
+      name: "Aliyon Tembo",
       role: "Lead UX Designer",
       avatar: "/placeholder.svg?height=64&width=64",
       contribution: "Led user research, created design system, and designed key user flows",
     },
     {
-      name: "Jordan Kim",
-      role: "UI Designer",
+      name: "Amos Kanyanta",
+      role: "Backend Engineer",
       avatar: "/placeholder.svg?height=64&width=64",
       contribution: "Created visual designs, illustrations, and maintained design consistency",
     },
     {
-      name: "Sam Patel",
-      role: "UX Researcher",
+      name: "Chiyesu Mashimbwa",
+      role: "Frontend Engineer",
       avatar: "/placeholder.svg?height=64&width=64",
       contribution: "Conducted user interviews, usability testing, and data analysis",
     },
     {
-      name: "Casey Liu",
-      role: "Product Manager",
+      name: "Joshua Sibanda",
+      role: "Web Designer",
       avatar: "/placeholder.svg?height=64&width=64",
       contribution: "Defined requirements, managed timeline, and coordinated with development team",
     },
@@ -307,10 +325,10 @@ export default function FinanceFlowProject() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <Header designerName="Alex Morgan" title="Designer" />
+      <Header designerName="Aliyon Tembo" title="Designer" />
 
       <ProjectHero
-        title="FinanceFlow"
+        title="ZitFuse Mobile App Redesign"
         subtitle="Redesigning mobile banking to make financial management faster, simpler, and more accessible for everyday users."
         category="Mobile App"
         year="2024"
@@ -323,8 +341,7 @@ export default function FinanceFlowProject() {
       <ProjectSection title="The Challenge" backgroundColor="white" index={0}>
         <div className="max-w-4xl">
           <p className="text-xl md:text-2xl text-black font-medium leading-relaxed mb-8">
-            Traditional banking apps are notoriously slow and confusing. Users were spending an average of 45 seconds
-            just to complete a simple money transfer, leading to frustration and app abandonment.
+           University students were struggling to keep up with their coursework due to missed lectures, poor access to quality resources, and a lack of syllabus-specific tutorials. Over 70% relied on scattered notes from WhatsApp groups, while YouTube content rarely aligned with what was taught in class. This led to low confidence, poor exam performance, and high academic stress—especially during finals week.
           </p>
           <motion.div
             className="bg-red-100 border-4 border-black p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
@@ -335,18 +352,23 @@ export default function FinanceFlowProject() {
               <li className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-red-500 border border-black mt-3 flex-shrink-0"></div>
                 <span className="text-black font-medium">
-                  Complex navigation requiring 6+ taps for basic transactions
+                  Limited access to consistent, quality learning materials.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-red-500 border border-black mt-3 flex-shrink-0"></div>
                 <span className="text-black font-medium">
-                  Poor visual hierarchy making important actions hard to find
+                  Inadequate revision tools and fragmented course resources.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-red-500 border border-black mt-3 flex-shrink-0"></div>
-                <span className="text-black font-medium">Lack of clear feedback during transaction processes</span>
+                <span className="text-black font-medium">Missed lectures due to scheduling conflicts or illness.</span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-red-500 border border-black mt-3 flex-shrink-0"></div>
+                <span className="text-black font-medium">Over-reliance on in-person learning with little digital backup.</span>
               </li>
             </ul>
           </motion.div>
