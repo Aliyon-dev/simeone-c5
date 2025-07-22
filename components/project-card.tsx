@@ -13,7 +13,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const isEven = index % 2 === 0
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <motion.div
@@ -21,11 +21,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, delay: index * 0.2 }}
       viewport={{ once: true, margin: "-100px" }}
-      className="border-8 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] mb-16"
+      className="border-8 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] mb-8 lg:mb-16"
     >
-      <div className={`grid lg:grid-cols-2 ${isEven ? "" : "lg:grid-cols-2"}`}>
+      <div className={`grid md:grid-cols-1 lg:grid-cols-2 ${isEven ? "" : "lg:grid-cols-2"}`}>
         <motion.div
-          className={`p-12 ${isEven ? "order-1" : "order-2 lg:order-1"} bg-white`}
+          className={`p-6 sm:p-8 lg:p-12 ${isEven ? "order-1" : "order-2 lg:order-1"} bg-white`}
           whileHover={{ backgroundColor: "#fef3c7" }}
           transition={{ duration: 0.3 }}
         >
@@ -35,16 +35,16 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <span className="bg-black text-white px-4 py-2 font-black text-sm uppercase tracking-wider border-2 border-black">
+            <span className="bg-black text-white px-3 py-1 font-black text-xs sm:px-4 sm:py-2 sm:text-sm uppercase tracking-wider border-2 border-black">
               {project.category}
             </span>
-            <span className="bg-red-500 text-white px-4 py-2 font-black text-sm uppercase tracking-wider border-2 border-black ml-2">
+            <span className="bg-red-500 text-white px-3 py-1 font-black text-xs sm:px-4 sm:py-2 sm:text-sm uppercase tracking-wider border-2 border-black ml-1 sm:ml-2">
               {project.year}
             </span>
           </motion.div>
 
           <motion.h3
-            className="text-3xl md:text-4xl font-black text-black mb-6 leading-tight uppercase tracking-tight"
+            className="text-2xl sm:text-3xl lg:text-4xl font-black text-black mb-4 lg:mb-6 leading-tight uppercase tracking-tight"
             initial={{ x: -20, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -53,7 +53,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           </motion.h3>
 
           <motion.p
-            className="text-black text-lg font-medium mb-8 leading-relaxed"
+            className="text-base lg:text-lg text-black font-medium mb-6 lg:mb-8 leading-relaxed"
             initial={{ x: -20, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
@@ -67,7 +67,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
             <Button
-              className="bg-white text-black border-4 border-black font-black px-8 py-4 text-lg uppercase tracking-wide shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-300 transition-all group"
+              className="bg-white text-black border-4 border-black font-black px-6 py-3 text-base sm:px-8 sm:py-4 sm:text-lg uppercase tracking-wide shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-300 transition-all group"
               asChild
             >
               <a href={project.hasFullCaseStudy ? project.caseStudyUrl : `#${project.id}-gallery`}>
@@ -79,7 +79,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         </motion.div>
 
         <motion.div
-          className={`${isEven ? "order-2" : "order-1 lg:order-2"} bg-gray-100 border-l-8 border-black`}
+          className={`${isEven ? "order-2" : "order-1 lg:order-2"} bg-gray-100 border-t-8 lg:border-t-0 lg:border-l-8`}
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.3 }}
         >
@@ -89,7 +89,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             objectFit="contain"
             width={600}
             height={400}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover min-h-[200px] sm:min-h-[300px] lg:min-h-[400px]"
           />
         </motion.div>
       </div>

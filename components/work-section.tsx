@@ -16,19 +16,19 @@ export function WorkSection({
   projects,
 }: WorkSectionProps) {
   return (
-    <section id="work" className="px-8 py-32 md:px-16 lg:px-24 bg-gray-50">
+    <section id="work" className="px-4 py-16 sm:px-8 sm:py-24 md:px-16 lg:px-24 lg:py-32 bg-gray-50">
       <motion.div
-        className="mb-24"
+        className="mb-12 lg:mb-24"
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-6xl md:text-8xl font-black text-black mb-8 uppercase tracking-tighter leading-none">
+        <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-black mb-8 uppercase tracking-tighter leading-none">
           {title}
         </h2>
-        <div className="w-32 h-2 bg-red-500 border-2 border-black mb-8"></div>
-        <p className="text-xl md:text-2xl text-black max-w-4xl font-medium leading-relaxed">{subtitle}</p>
+        <div className="w-24 h-2 lg:w-32 bg-red-500 border-2 border-black mb-8"></div>
+        <p className="text-lg md:text-xl lg:text-2xl text-black max-w-4xl font-medium leading-relaxed">{subtitle}</p>
       </motion.div>
 
       <div className="space-y-0">

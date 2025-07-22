@@ -30,7 +30,7 @@ export function Hero({
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
-          className="absolute top-20 left-10 w-32 h-32 bg-yellow-300 border-4 border-black"
+          className="absolute top-20 left-10 w-16 h-16 lg:w-32 lg:h-32 bg-yellow-300 border-4 border-black"
           initial={{ rotate: 0, scale: 0 }}
           animate={{ rotate: 45, scale: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
@@ -57,23 +57,23 @@ export function Hero({
       </div>
 
       <div className="max-w-7xl mx-auto w-full">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Side - Stats and Visual Elements */}
-          <div className="lg:col-span-4 space-y-8">
+          <div className="lg:col-span-4 space-y-6 lg:space-y-8">
             {/* Profile Card */}
             <motion.div
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="bg-white border-6 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6"
+              className="bg-white border-6 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 lg:p-6"
               whileHover={{ scale: 1.02, rotate: -1 }}
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-16 h-16 bg-black border-4 border-black flex items-center justify-center">
+                <div className="w-12 h-12 lg:w-16 lg:h-16 bg-black border-4 border-black flex items-center justify-center">
                   <div className="w-8 h-8 bg-white"></div>
                 </div>
                 <div>
-                  <h3 className="font-black text-lg uppercase tracking-wide text-black">Aliyon Tembo</h3>
+                  <h3 className="font-black text-base lg:text-lg uppercase tracking-wide text-black">Aliyon Tembo</h3>
                   <p className="font-bold text-black">UX Designer</p>
                 </div>
               </div>
@@ -83,19 +83,21 @@ export function Hero({
             </motion.div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 lg:gap-4">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
                   initial={{ y: 50, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                  className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-4 text-center"
+                  className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-3 lg:p-4 text-center"
                   whileHover={{ scale: 1.05, rotate: index % 2 === 0 ? 2 : -2 }}
                 >
                   <div className="text-black mb-2">{stat.icon}</div>
-                  <div className="font-black text-2xl text-black mb-1">{stat.value}</div>
-                  <div className="font-bold text-xs text-black uppercase tracking-wide">{stat.label}</div>
+                  <div className="font-black text-xl lg:text-2xl text-black mb-1">{stat.value}</div>
+                  <div className="font-bold text-[10px] lg:text-xs text-black uppercase tracking-wide">
+                    {stat.label}
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -126,12 +128,12 @@ export function Hero({
           </div>
 
           {/* Right Side - Main Content */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-8 order-first lg:order-last">
             <motion.h1
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-6xl md:text-8xl lg:text-[12rem] font-black text-black mb-8 leading-none tracking-tighter"
+              className="text-4xl sm:text-6xl md:text-8xl lg:text-[8rem] xl:text-[12rem] font-black text-black mb-6 lg:mb-8 leading-none tracking-tighter"
             >
               {greeting}
             </motion.h1>
@@ -140,7 +142,7 @@ export function Hero({
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="max-w-3xl space-y-8 text-xl md:text-2xl text-black leading-relaxed font-medium"
+              className="max-w-3xl space-y-4 lg:space-y-8 text-lg md:text-xl lg:text-2xl text-black leading-relaxed font-medium"
             >
               {description.map((paragraph, index) => (
                 <motion.p
@@ -184,17 +186,17 @@ export function Hero({
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 1.4 }}
-              className="flex flex-wrap gap-4 mt-12"
+              className="flex flex-wrap gap-4 mt-8 lg:mt-12"
             >
               <motion.button
-                className="bg-red-500 text-white font-black px-8 py-4 text-lg uppercase tracking-wide border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
+                className="bg-red-500 text-white font-black px-6 py-3 text-base lg:px-8 lg:py-4 lg:text-lg uppercase tracking-wide border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 View My Work
               </motion.button>
               <motion.button
-                className="bg-white text-black font-black px-8 py-4 text-lg uppercase tracking-wide border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-300 transition-all"
+                className="bg-white text-black font-black px-6 py-3 text-base lg:px-8 lg:py-4 lg:text-lg uppercase tracking-wide border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-300 transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
