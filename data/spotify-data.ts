@@ -2,9 +2,9 @@ import type { Track, SpotifyPlaylist } from "@/components/spotify-section"
 
 export const currentTrack: Track = {
   id: "current-1",
-  title: "Midnight City",
-  artist: "M83",
-  album: "Hurry Up, We're Dreaming",
+  title: "Open Hearts",
+  artist: "The Weeknd",
+  album: "Hurry Up Tomorrow",
   duration: "4:03",
   albumArt: "/placeholder.svg?height=120&width=120",
   spotifyUrl: "https://open.spotify.com/track/example",
@@ -19,18 +19,18 @@ export const designPlaylists: SpotifyPlaylist[] = [
     tracks: [
       {
         id: "focus-1",
-        title: "Weightless",
-        artist: "Marconi Union",
+        title: "Shadow Moses",
+        artist: "Bring Me The Horizon",
         album: "Weightless",
-        duration: "8:10",
+        duration: "4:10",
         albumArt: "/placeholder.svg?height=60&width=60",
         spotifyUrl: "https://open.spotify.com/track/example",
       },
       {
         id: "focus-2",
-        title: "Avril 14th",
-        artist: "Aphex Twin",
-        album: "Drukqs",
+        title: "Kim Dracula",
+        artist: "Confession",
+        album: "Gradual Decline In Morale",
         duration: "2:05",
         albumArt: "/placeholder.svg?height=60&width=60",
         spotifyUrl: "https://open.spotify.com/track/example",

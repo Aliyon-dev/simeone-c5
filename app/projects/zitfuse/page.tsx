@@ -18,7 +18,7 @@ import { ProjectTimeline } from "@/components/project-timeline"
 import { LessonsLearned } from "@/components/lessons-learned"
 import { TeamCredits } from "@/components/team-credits"
 
-export default function FinanceFlowProject() {
+export default function ZitfuseProject() {
   const processSteps = [
     {
       number: "01",
@@ -90,14 +90,24 @@ export default function FinanceFlowProject() {
 
   const showcaseImages = [
     {
-      src: "/placeholder.svg?height=600&width=400",
-      alt: "FinanceFlow mobile app screens",
-      caption: "Key screens showing the new transaction flow",
+      src: "/zitfuse-1.png?height=600&width=400",
+      alt: "Zitfuse mobile app screens",
+      caption: "Key screens from the Zitfuse mobile app redesign",
     },
     {
-      src: "/placeholder.svg?height=600&width=400",
-      alt: "FinanceFlow dashboard design",
-      caption: "Redesigned dashboard with improved information hierarchy",
+      src: "/zitfuse-2.png?height=600&width=400",
+      alt: "Zitfuse design",
+      caption: "Redesigned Zitfuse app interface, showing courses",
+    },
+        {
+      src: "/zitfuse-3.png?height=600&width=400",
+      alt: "Zitfuse design",
+      caption: "Interface showing the AI chatbot feature for student support",
+    },
+        {
+      src: "/zitfuse-4.png?height=400&width=400",
+      alt: "Zitfuse design",
+      caption: "Interface displaying the payment flow for course subscriptions",
     },
   ]
 
@@ -188,9 +198,9 @@ export default function FinanceFlowProject() {
 
   const designSystemData = {
     colors: [
-      { name: "Primary Blue", hex: "#2563EB", usage: "Primary actions, links" },
+      { name: "Primary Yellow", hex: "#FFC727", usage: "Primary actions, links" },
+      { name: "Secondary Purple", hex: "#5344C2", usage: "Headings, CTA" },
       { name: "Success Green", hex: "#10B981", usage: "Success states, confirmations" },
-      { name: "Warning Orange", hex: "#F59E0B", usage: "Warnings, pending states" },
       { name: "Error Red", hex: "#EF4444", usage: "Errors, destructive actions" },
       { name: "Neutral Gray", hex: "#6B7280", usage: "Secondary text, borders" },
       { name: "Background", hex: "#F9FAFB", usage: "Page backgrounds, cards" },
@@ -214,7 +224,7 @@ export default function FinanceFlowProject() {
         image: "/placeholder.svg?height=200&width=300",
       },
       {
-        name: "Transaction Card",
+        name: "Course Card",
         description: "Individual transaction display",
         image: "/placeholder.svg?height=200&width=300",
       },
@@ -233,7 +243,7 @@ export default function FinanceFlowProject() {
       {
         type: "success" as const,
         title: "Improved Task Completion",
-        description: "Users completed money transfers 60% faster with the new design",
+        description: "Users found course content faster with the new design",
         metric: "60% faster",
         action: "Implemented streamlined flow in final design",
       },
@@ -247,7 +257,7 @@ export default function FinanceFlowProject() {
       {
         type: "neutral" as const,
         title: "Mixed Feedback on Colors",
-        description: "Some users preferred the original blue color scheme",
+        description: "Some users preferred the original yellow color scheme",
         action: "Conducted additional color preference testing",
       },
     ],
@@ -324,19 +334,19 @@ export default function FinanceFlowProject() {
       name: "Amos Kanyanta",
       role: "Backend Engineer",
       avatar: "/placeholder.svg?height=64&width=64",
-      contribution: "Created visual designs, illustrations, and maintained design consistency",
+      contribution: "Streamlined backend integration for course content and user data",
     },
     {
       name: "Chiyesu Mashimbwa",
       role: "Frontend Engineer",
       avatar: "/placeholder.svg?height=64&width=64",
-      contribution: "Conducted user interviews, usability testing, and data analysis",
+      contribution: "Implemented responsive design and optimized performance for mobile devices",
     },
     {
       name: "Joshua Sibanda",
       role: "Web Designer",
       avatar: "/placeholder.svg?height=64&width=64",
-      contribution: "Defined requirements, managed timeline, and coordinated with development team",
+      contribution: "Designed the web version of ZitFuse, ensuring consistency with mobile app",
     },
   ]
 
@@ -351,13 +361,13 @@ export default function FinanceFlowProject() {
 
       <ProjectHero
         title="ZitFuse Mobile App Redesign"
-        subtitle="Redesigning mobile banking to make financial management faster, simpler, and more accessible for everyday users."
+        subtitle="Redesigning Zitfuse Ed-tech Application to make Learning faster, simpler, and more accessible for everyday University Students."
         category="Mobile App"
         year="2024"
         duration="4 months"
         role="Lead UX Designer"
         tools={["Figma", "Principle", "Maze", "Miro"]}
-        heroImage="/placeholder.svg?height=600&width=1200"
+        heroImage="/zitfuse-hero.png?height=600&width=1200"
       />
 
       <ProjectSection title="The Challenge" backgroundColor="white" index={0}>
@@ -418,7 +428,7 @@ export default function FinanceFlowProject() {
       <ProjectSection title="Results & Impact" backgroundColor="yellow" index={3}>
         <div className="mb-12">
           <p className="text-xl md:text-2xl text-black font-medium leading-relaxed mb-8 max-w-4xl">
-            The redesigned FinanceFlow app launched to immediate positive feedback from users and significant
+            The redesigned Zitfuse app launched to immediate positive feedback from users and significant
             improvements in key metrics across the board.
           </p>
         </div>
@@ -470,7 +480,7 @@ export default function FinanceFlowProject() {
       <ProjectSection title="Lessons Learned" backgroundColor="white" index={8}>
         <div className="mb-12">
           <p className="text-xl md:text-2xl text-black font-medium leading-relaxed mb-8 max-w-4xl">
-            Every project teaches us something new. Here are the key takeaways from the FinanceFlow redesign.
+            Every project teaches us something new. Here are the key takeaways from the Zitfuse redesign.
           </p>
         </div>
         <LessonsLearned lessons={lessonsData} />
@@ -484,15 +494,17 @@ export default function FinanceFlowProject() {
         </div>
         <TeamCredits members={teamData} />
       </ProjectSection>
-
+      
+      {/*
       <NextProject
         title="EcoMarket Platform"
         category="Web Platform"
         href="/projects/ecomarket"
         image="/placeholder.svg?height=400&width=600"
       />
+      */}
 
-      <Footer designerName="Alex Morgan" />
+      <Footer designerName="Aliyon Tembo" />
     </motion.div>
   )
 }
