@@ -25,6 +25,24 @@ export function Hero({
     { icon: <Zap className="w-8 h-8" />, value: "∞", label: "Ideas Generated" },
   ]
 
+  const scrollToWork = () => {
+    const workSection = document.getElementById("work")
+    if (workSection) {
+      workSection.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact")
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" })
+    } else {
+      // If no contact section exists, open email client
+      window.location.href =
+        "mailto:aliyon@example.com?subject=Let's work together&body=Hi Aliyon, I'd love to discuss a potential project with you."
+    }
+  }
+
   return (
     <section className="px-8 py-32 md:px-16 lg:px-24 min-h-[90vh] flex items-center relative overflow-hidden">
       {/* Background Decorative Elements */}
@@ -189,6 +207,7 @@ export function Hero({
               className="flex flex-wrap gap-4 mt-8 lg:mt-12"
             >
               <motion.button
+                onClick={scrollToWork}
                 className="bg-red-500 text-white font-black px-6 py-3 text-base lg:px-8 lg:py-4 lg:text-lg uppercase tracking-wide border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -196,6 +215,7 @@ export function Hero({
                 View My Work
               </motion.button>
               <motion.button
+                onClick={scrollToContact}
                 className="bg-white text-black font-black px-6 py-3 text-base lg:px-8 lg:py-4 lg:text-lg uppercase tracking-wide border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-300 transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
