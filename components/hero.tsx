@@ -1,239 +1,77 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Users, Coffee, Award, Zap } from "lucide-react"
+import { ArrowRight, Mail } from "lucide-react"
 
-interface HeroProps {
-  greeting?: string
-  description?: string[]
-  currentCompany?: string
-  previousCompanies?: string[]
-}
-
-export function Hero({
-  greeting = "Hi,",
-  description = [
-    "I'm a UX designer passionate about creating meaningful digital experiences that solve real problems and delight users.",
-  ],
-  currentCompany = "Illusion Labs",
-  previousCompanies = ["Dufuna Tech", "ZitFuse"],
-}: HeroProps) {
-  const stats = [
-    { icon: <Users className="w-6 h-6 md:w-8 md:h-8" />, value: "20+", label: "Projects Completed" },
-    { icon: <Coffee className="w-6 h-6 md:w-8 md:h-8" />, value: "1000+", label: "Cups of Coffee" },
-    { icon: <Award className="w-6 h-6 md:w-8 md:h-8" />, value: "4+", label: "Years Experience" },
-    { icon: <Zap className="w-6 h-6 md:w-8 md:h-8" />, value: "∞", label: "Ideas Generated" },
-  ]
-
-  const scrollToWork = () => {
-    const workSection = document.getElementById("work")
-    if (workSection) {
-      workSection.scrollIntoView({ behavior: "smooth" })
-    }
-  }
-
-  const scrollToContact = () => {
-    const contactSection = document.getElementById("contact")
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" })
-    } else {
-      // If no contact section exists, open email client
-      window.location.href =
-        "mailto:aliyon@example.com?subject=Let's work together&body=Hi Aliyon, I'd love to discuss a potential project with you."
-    }
-  }
-
+export default function Hero() {
   return (
-    <section className="px-4 sm:px-8 py-16 sm:py-24 md:py-32 md:px-16 lg:px-24 min-h-screen flex items-center relative overflow-hidden">
-      {/* Background Decorative Elements - Hidden on mobile to prevent overlap */}
-      <div className="absolute inset-0 pointer-events-none hidden md:block">
-        <motion.div
-          className="absolute top-20 left-10 w-16 h-16 lg:w-32 lg:h-32 bg-yellow-300 border-4 border-black"
-          initial={{ rotate: 0, scale: 0 }}
-          animate={{ rotate: 45, scale: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-        />
-        <motion.div
-          className="absolute top-40 right-20 w-24 h-24 bg-red-500 border-4 border-black rounded-full"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        />
-        <motion.div
-          className="absolute bottom-32 left-20 w-16 h-40 bg-blue-400 border-4 border-black"
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-32 w-28 h-28 bg-green-400 border-4 border-black"
-          style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
-          initial={{ scale: 0, rotate: 180 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{ duration: 1, delay: 1.5 }}
-        />
-      </div>
+    <header className="relative overflow-hidden bg-white">
+      {/* Decorative background blob */}
+      <div className="absolute inset-y-0 right-0 -z-10 hidden w-1/2 bg-red-100 md:block" />
 
-      <div className="max-w-7xl mx-auto w-full relative z-10">
-        {/* Mobile-first layout */}
-        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-start lg:items-center">
-          {/* Main Content - First on mobile */}
-          <div className="w-full lg:col-span-8 lg:order-last">
-            <motion.h1
-              initial={{ x: -50, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] font-black text-black mb-4 sm:mb-6 lg:mb-8 leading-[0.8] tracking-tighter"
-            >
-              {greeting}
-            </motion.h1>
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 px-4 py-24 sm:px-8 md:flex-row md:gap-20 md:py-32 lg:px-16">
+        {/* ------- TEXT ------- */}
+        <motion.div
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="w-full md:w-1/2"
+        >
+          <h1 className="text-center text-4xl font-extrabold leading-tight tracking-tight text-black sm:text-5xl md:text-left lg:text-6xl">
+            Aliyon Simeone <br className="hidden sm:block" />
+            <span className="relative inline-block">
+              <span className="relative z-10">Product&nbsp;Designer</span>
+              <span className="absolute -inset-1 rotate-2 bg-yellow-300"></span>
+            </span>
+          </h1>
 
-            <motion.div
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="max-w-2xl lg:max-w-3xl space-y-4 lg:space-y-6 text-base sm:text-lg md:text-xl lg:text-2xl text-black leading-relaxed font-medium mb-6 lg:mb-8"
-            >
-              {description.map((paragraph, index) => (
-                <motion.p
-                  key={index}
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.8 + index * 0.2 }}
-                >
-                  {paragraph}
-                </motion.p>
-              ))}
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: 1.2 }}
-                className="flex flex-wrap items-center gap-2"
-              >
-                <span>Currently designing at</span>
-                <motion.span
-                  className="bg-yellow-300 px-2 py-1 font-black text-sm sm:text-base uppercase tracking-wide border-2 border-black inline-block"
-                  whileHover={{ scale: 1.05, rotate: -1 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  {currentCompany}
-                </motion.span>
-                <span>, previously at</span>
-                {previousCompanies.map((company, index) => (
-                  <motion.span
-                    key={company}
-                    className="bg-blue-300 px-2 py-1 font-black text-sm sm:text-base uppercase tracking-wide border-2 border-black inline-block"
-                    whileHover={{ scale: 1.05, rotate: 1 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  >
-                    {company}
-                  </motion.span>
-                ))}
-              </motion.div>
-            </motion.div>
+          <p className="mt-6 text-center text-lg leading-relaxed text-gray-700 sm:text-xl md:text-left md:pr-8">
+            I craft engaging, user-centred digital experiences that solve real problems and drive business impact.
+          </p>
 
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 1.4 }}
-              className="flex flex-col sm:flex-row gap-4 mb-8 lg:mb-0"
+          {/* Buttons */}
+          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row md:justify-start">
+            <button
+              onClick={() => {
+                const workEl = document.getElementById("work")
+                workEl?.scrollIntoView({ behavior: "smooth" })
+              }}
+              className="flex w-full items-center justify-center gap-2 rounded border-2 border-black bg-black px-6 py-3 font-bold uppercase tracking-wide text-white transition-colors hover:bg-white hover:text-black sm:w-auto"
             >
-              <motion.button
-                onClick={scrollToWork}
-                className="bg-red-500 text-white font-black px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base lg:text-lg uppercase tracking-wide border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all w-full sm:w-auto"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                View My Work
-              </motion.button>
-              <motion.button
-                onClick={scrollToContact}
-                className="bg-white text-black font-black px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base lg:text-lg uppercase tracking-wide border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-300 transition-all w-full sm:w-auto"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Get In Touch
-              </motion.button>
-            </motion.div>
+              View My Work <ArrowRight size={18} />
+            </button>
+
+            <button
+              onClick={() => {
+                const contactEl = document.getElementById("contact")
+                if (contactEl) {
+                  contactEl.scrollIntoView({ behavior: "smooth" })
+                } else {
+                  window.location.href =
+                    "mailto:aliyon@example.com?subject=Let’s work together&body=Hi Aliyon, I'd love to discuss a potential project with you."
+                }
+              }}
+              className="flex w-full items-center justify-center gap-2 rounded border-2 border-black bg-white px-6 py-3 font-bold uppercase tracking-wide text-black transition-colors hover:bg-black hover:text-white sm:w-auto"
+            >
+              Work With Me <Mail size={18} />
+            </button>
           </div>
+        </motion.div>
 
-          {/* Side Content - Second on mobile */}
-          <div className="w-full lg:col-span-4 space-y-4 lg:space-y-6">
-            {/* Profile Card */}
-            <motion.div
-              initial={{ x: -50, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-4 lg:p-6"
-              whileHover={{ scale: 1.02, rotate: -0.5 }}
-            >
-              <div className="flex items-center gap-3 lg:gap-4 mb-4">
-                <div className="w-12 h-12 lg:w-16 lg:h-16 bg-black border-2 lg:border-4 border-black flex items-center justify-center flex-shrink-0">
-                  <div className="w-6 h-6 lg:w-8 lg:h-8 bg-white"></div>
-                </div>
-                <div className="min-w-0">
-                  <h3 className="font-black text-sm lg:text-lg uppercase tracking-wide text-black truncate">
-                    Aliyon Tembo
-                  </h3>
-                  <p className="font-bold text-xs lg:text-base text-black">UX Designer</p>
-                </div>
-              </div>
-              <div className="bg-green-300 border-2 border-black p-2 lg:p-3">
-                <p className="font-black text-xs lg:text-sm uppercase tracking-wide text-black text-center">
-                  Available for Projects
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-3 lg:gap-4">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ y: 30, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                  className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-3 lg:p-4 text-center"
-                  whileHover={{ scale: 1.05, rotate: index % 2 === 0 ? 1 : -1 }}
-                >
-                  <div className="text-black mb-1 lg:mb-2 flex justify-center">{stat.icon}</div>
-                  <div className="font-black text-lg lg:text-2xl text-black mb-1">{stat.value}</div>
-                  <div className="font-bold text-[9px] lg:text-xs text-black uppercase tracking-wide leading-tight">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Design Tools */}
-            <motion.div
-              initial={{ x: -30, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1 }}
-              className="bg-purple-300 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-4 lg:p-6"
-            >
-              <h3 className="font-black text-base lg:text-lg uppercase tracking-wide text-black mb-3 lg:mb-4">
-                Toolkit
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {["Figma", "Sketch", "Principle", "Miro", "Notion"].map((tool, index) => (
-                  <motion.span
-                    key={tool}
-                    className="bg-black text-white px-2 py-1 lg:px-3 lg:py-1 font-black text-xs lg:text-sm uppercase tracking-wide border-2 border-black"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.3, delay: 1.2 + index * 0.1 }}
-                    whileHover={{ scale: 1.1, backgroundColor: "#EF4444" }}
-                  >
-                    {tool}
-                  </motion.span>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
+        {/* ------- IMAGE / MOCKUP ------- */}
+        <motion.div
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full md:w-1/2"
+        >
+          <img
+            src="/placeholder.svg?height=600&width=800"
+            alt="Preview of featured design work"
+            className="mx-auto h-auto w-full max-w-md rounded-lg border-4 border-black object-cover shadow-lg md:max-w-none"
+          />
+        </motion.div>
       </div>
-    </section>
+    </header>
   )
 }
