@@ -2,116 +2,111 @@ import type { Project } from "@/types/portfolio"
 
 export const projects: Project[] = [
   {
-    id: "Zitfuse",
-    title: "ZitFuse E-learning Mobile App",
+    id: "financeflow",
+    title: "FinanceFlow",
     description:
-      "Redesigned the mobile E-learning experience for University Students to reduce transaction time by 60% and increase user satisfaction scores. Led user research, prototyping, and usability testing with a focus on accessibility and speed.",
-    image: "/placeholder.svg?height=400&width=600",
-    imageAlt: "ZitFuse mobile app interface",
-    category: "Mobile App",
+      "A comprehensive financial management platform that helps users track expenses, set budgets, and achieve their financial goals.",
+    category: "Fintech",
     year: "2024",
-
-    caseStudyUrl: "/projects/zitfuse",
+    image: "/placeholder.svg?height=600&width=800&text=FinanceFlow",
+    tags: ["UX Research", "UI Design", "Prototyping", "User Testing"],
     hasFullCaseStudy: true,
-  },
-  {
-    id: "smartcast",
-    title: "SmartCast Voting System",
-    description:
-      "Developed a secure, decentralized voting system that leverages blockchain to ensure transparency, auditability, and voter anonymity in school and organizational elections.",
-    image: "/smart-cast.jpg?height=400&width=600",
-    imageAlt: "SmartCast voting interface",
-    category: "Blockchain Application",
-    year: "2025",
-    hasFullCaseStudy: false,
     gallery: [
       {
-        src: "/placeholder.svg?height=600&width=800",
-        alt: "SmartCast dashboard",
-        caption: "Admin dashboard for election setup",
+        id: "ff1",
+        url: "/placeholder.svg?height=800&width=1200&text=FinanceFlow+Dashboard",
+        caption: "Main dashboard showing financial overview",
         category: "Web Design",
       },
       {
-        src: "/placeholder.svg?height=600&width=800",
-        alt: "Product listing page",
-        caption: "Product grid with sustainability ratings",
-        category: "Web Design",
-      },
-      {
-        src: "/placeholder.svg?height=600&width=800",
-        alt: "Shopping cart interface",
-        caption: "Cart showing environmental impact metrics",
-        category: "Web Design",
-      },
-      {
-        src: "/placeholder.svg?height=600&width=800",
-        alt: "Mobile app screens",
-        caption: "Mobile companion app for on-the-go shopping",
+        id: "ff2",
+        url: "/placeholder.svg?height=800&width=1200&text=FinanceFlow+Mobile",
+        caption: "Mobile app interface",
         category: "Mobile Design",
-      },
-      {
-        src: "/placeholder.svg?height=600&width=800",
-        alt: "User research findings",
-        caption: "Key insights from user interviews",
-        category: "Research",
-      },
-      {
-        src: "/placeholder.svg?height=600&width=800",
-        alt: "Design system components",
-        caption: "Component library and style guide",
-        category: "Design System",
       },
     ],
   },
-
   {
-    id: "fynt",
-    title: "Fynt Personal Finance Tracker",
+    id: "ecomarket",
+    title: "EcoMarket",
     description:
-      "Built a lightweight personal finance tool that helps users track income, expenses, and savings goals with visual insights and budgeting recommendations powered by AI.",
-    image: "/Fynt.jpg?height=400&width=600",
-    imageAlt: "Fynt finance tracking dashboard",
-    category: "Fintech App",
-    year: "2025",
-    caseStudyUrl: "/case-studies/fynt",
+      "An e-commerce platform focused on sustainable and eco-friendly products, connecting conscious consumers with green brands.",
+    category: "E-commerce",
+    year: "2023",
+    image: "/placeholder.svg?height=600&width=800&text=EcoMarket",
+    tags: ["E-commerce", "Sustainability", "Mobile Design", "Brand Identity"],
     hasFullCaseStudy: false,
     gallery: [
       {
-        src: "/placeholder.svg?height=600&width=800",
-        alt: "Fynt dashboard",
-        caption: "Main dashboard with spending overview",
-        category: "Dashboard",
+        id: "em1",
+        url: "/placeholder.svg?height=800&width=1200&text=EcoMarket+Homepage",
+        caption: "Homepage design with sustainable product showcase",
+        category: "Web Design",
       },
       {
-        src: "/placeholder.svg?height=600&width=800",
-        alt: "Task management interface",
-        caption: "Kanban board for task organization",
-        category: "Task Management",
+        id: "em2",
+        url: "/placeholder.svg?height=800&width=1200&text=EcoMarket+Product+Page",
+        caption: "Product detail page with sustainability metrics",
+        category: "Web Design",
       },
       {
-        src: "/placeholder.svg?height=600&width=800",
-        alt: "Team collaboration features",
-        caption: "Real-time chat and file sharing",
-        category: "Collaboration",
-      },
-      {
-        src: "/placeholder.svg?height=600&width=800",
-        alt: "Mobile app interface",
-        caption: "Mobile app for remote team management",
+        id: "em3",
+        url: "/placeholder.svg?height=800&width=1200&text=EcoMarket+Mobile+App",
+        caption: "Mobile shopping experience",
         category: "Mobile Design",
       },
       {
-        src: "/placeholder.svg?height=600&width=800",
-        alt: "Analytics dashboard",
-        caption: "Team productivity metrics and insights",
-        category: "Analytics",
+        id: "em4",
+        url: "/placeholder.svg?height=800&width=1200&text=EcoMarket+Research",
+        caption: "User research and persona development",
+        category: "Research",
+      },
+    ],
+  },
+  {
+    id: "teamsync",
+    title: "TeamSync",
+    description:
+      "A collaborative workspace platform that streamlines team communication and project management for remote teams.",
+    category: "Productivity",
+    year: "2023",
+    image: "/placeholder.svg?height=600&width=800&text=TeamSync",
+    tags: ["Collaboration", "Remote Work", "Dashboard Design", "User Experience"],
+    hasFullCaseStudy: false,
+    gallery: [
+      {
+        id: "ts1",
+        url: "/placeholder.svg?height=800&width=1200&text=TeamSync+Dashboard",
+        caption: "Main collaboration dashboard",
+        category: "Web Design",
+      },
+      {
+        id: "ts2",
+        url: "/placeholder.svg?height=800&width=1200&text=TeamSync+Chat",
+        caption: "Integrated chat and messaging system",
+        category: "Web Design",
+      },
+      {
+        id: "ts3",
+        url: "/placeholder.svg?height=800&width=1200&text=TeamSync+Mobile",
+        caption: "Mobile app for on-the-go collaboration",
+        category: "Mobile Design",
+      },
+      {
+        id: "ts4",
+        url: "/placeholder.svg?height=800&width=1200&text=TeamSync+Wireframes",
+        caption: "Initial wireframes and user flow",
+        category: "Research",
+      },
+      {
+        id: "ts5",
+        url: "/placeholder.svg?height=800&width=1200&text=TeamSync+Prototypes",
+        caption: "Interactive prototypes and testing",
+        category: "Prototyping",
       },
     ],
   },
 ]
 
-/* --------------------------------------------------
-   Compatibility export — some components expect
-   `portfolioData` instead of `projects`
---------------------------------------------------- */
+// Export both for compatibility
 export const portfolioData = projects

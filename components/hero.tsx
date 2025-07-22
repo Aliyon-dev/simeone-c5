@@ -19,10 +19,10 @@ export function Hero({
   previousCompanies = ["Dufuna Tech", "ZitFuse"],
 }: HeroProps) {
   const stats = [
-    { icon: <Users className="w-8 h-8" />, value: "20+", label: "Projects Completed" },
-    { icon: <Coffee className="w-8 h-8" />, value: "1000+", label: "Cups of Coffee" },
-    { icon: <Award className="w-8 h-8" />, value: "4+", label: "Years Experience" },
-    { icon: <Zap className="w-8 h-8" />, value: "∞", label: "Ideas Generated" },
+    { icon: <Users className="w-6 h-6 md:w-8 md:h-8" />, value: "20+", label: "Projects Completed" },
+    { icon: <Coffee className="w-6 h-6 md:w-8 md:h-8" />, value: "1000+", label: "Cups of Coffee" },
+    { icon: <Award className="w-6 h-6 md:w-8 md:h-8" />, value: "4+", label: "Years Experience" },
+    { icon: <Zap className="w-6 h-6 md:w-8 md:h-8" />, value: "∞", label: "Ideas Generated" },
   ]
 
   const scrollToWork = () => {
@@ -44,9 +44,9 @@ export function Hero({
   }
 
   return (
-    <section className="px-8 py-32 md:px-16 lg:px-24 min-h-[90vh] flex items-center relative overflow-hidden">
-      {/* Background Decorative Elements */}
-      <div className="absolute inset-0 pointer-events-none">
+    <section className="px-4 sm:px-8 py-16 sm:py-24 md:py-32 md:px-16 lg:px-24 min-h-screen flex items-center relative overflow-hidden">
+      {/* Background Decorative Elements - Hidden on mobile to prevent overlap */}
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
         <motion.div
           className="absolute top-20 left-10 w-16 h-16 lg:w-32 lg:h-32 bg-yellow-300 border-4 border-black"
           initial={{ rotate: 0, scale: 0 }}
@@ -74,93 +74,25 @@ export function Hero({
         />
       </div>
 
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Side - Stats and Visual Elements */}
-          <div className="lg:col-span-4 space-y-6 lg:space-y-8">
-            {/* Profile Card */}
-            <motion.div
-              initial={{ x: -100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="bg-white border-6 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 lg:p-6"
-              whileHover={{ scale: 1.02, rotate: -1 }}
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 lg:w-16 lg:h-16 bg-black border-4 border-black flex items-center justify-center">
-                  <div className="w-8 h-8 bg-white"></div>
-                </div>
-                <div>
-                  <h3 className="font-black text-base lg:text-lg uppercase tracking-wide text-black">Aliyon Tembo</h3>
-                  <p className="font-bold text-black">UX Designer</p>
-                </div>
-              </div>
-              <div className="bg-green-300 border-2 border-black p-3">
-                <p className="font-black text-sm uppercase tracking-wide text-black">Available for Projects</p>
-              </div>
-            </motion.div>
-
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-3 lg:gap-4">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ y: 50, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                  className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-3 lg:p-4 text-center"
-                  whileHover={{ scale: 1.05, rotate: index % 2 === 0 ? 2 : -2 }}
-                >
-                  <div className="text-black mb-2">{stat.icon}</div>
-                  <div className="font-black text-xl lg:text-2xl text-black mb-1">{stat.value}</div>
-                  <div className="font-bold text-[10px] lg:text-xs text-black uppercase tracking-wide">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Design Tools */}
-            <motion.div
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        {/* Mobile-first layout */}
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-start lg:items-center">
+          {/* Main Content - First on mobile */}
+          <div className="w-full lg:col-span-8 lg:order-last">
+            <motion.h1
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1 }}
-              className="bg-purple-300 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6"
-            >
-              <h3 className="font-black text-lg uppercase tracking-wide text-black mb-4">Toolkit</h3>
-              <div className="flex flex-wrap gap-2">
-                {["Figma", "Sketch", "Principle", "Miro", "Notion"].map((tool, index) => (
-                  <motion.span
-                    key={tool}
-                    className="bg-black text-white px-3 py-1 font-black text-sm uppercase tracking-wide border-2 border-black"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.3, delay: 1.2 + index * 0.1 }}
-                    whileHover={{ scale: 1.1, backgroundColor: "#EF4444" }}
-                  >
-                    {tool}
-                  </motion.span>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Right Side - Main Content */}
-          <div className="lg:col-span-8 order-first lg:order-last">
-            <motion.h1
-              initial={{ x: -100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl sm:text-6xl md:text-8xl lg:text-[8rem] xl:text-[12rem] font-black text-black mb-6 lg:mb-8 leading-none tracking-tighter"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] font-black text-black mb-4 sm:mb-6 lg:mb-8 leading-[0.8] tracking-tighter"
             >
               {greeting}
             </motion.h1>
 
             <motion.div
-              initial={{ y: 50, opacity: 0 }}
+              initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="max-w-3xl space-y-4 lg:space-y-8 text-lg md:text-xl lg:text-2xl text-black leading-relaxed font-medium"
+              className="max-w-2xl lg:max-w-3xl space-y-4 lg:space-y-6 text-base sm:text-lg md:text-xl lg:text-2xl text-black leading-relaxed font-medium mb-6 lg:mb-8"
             >
               {description.map((paragraph, index) => (
                 <motion.p
@@ -172,31 +104,32 @@ export function Hero({
                   {paragraph}
                 </motion.p>
               ))}
-              <motion.p
+              <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
+                className="flex flex-wrap items-center gap-2"
               >
-                Currently designing at{" "}
+                <span>Currently designing at</span>
                 <motion.span
-                  className="bg-yellow-300 px-2 py-1 font-black uppercase tracking-wide border-2 border-black"
+                  className="bg-yellow-300 px-2 py-1 font-black text-sm sm:text-base uppercase tracking-wide border-2 border-black inline-block"
                   whileHover={{ scale: 1.05, rotate: -1 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   {currentCompany}
                 </motion.span>
-                , previously at{" "}
+                <span>, previously at</span>
                 {previousCompanies.map((company, index) => (
                   <motion.span
                     key={company}
-                    className="bg-blue-300 px-2 py-1 font-black uppercase tracking-wide border-2 border-black mr-2"
+                    className="bg-blue-300 px-2 py-1 font-black text-sm sm:text-base uppercase tracking-wide border-2 border-black inline-block"
                     whileHover={{ scale: 1.05, rotate: 1 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
                     {company}
                   </motion.span>
                 ))}
-              </motion.p>
+              </motion.div>
             </motion.div>
 
             {/* CTA Buttons */}
@@ -204,24 +137,99 @@ export function Hero({
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 1.4 }}
-              className="flex flex-wrap gap-4 mt-8 lg:mt-12"
+              className="flex flex-col sm:flex-row gap-4 mb-8 lg:mb-0"
             >
               <motion.button
                 onClick={scrollToWork}
-                className="bg-red-500 text-white font-black px-6 py-3 text-base lg:px-8 lg:py-4 lg:text-lg uppercase tracking-wide border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="bg-red-500 text-white font-black px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base lg:text-lg uppercase tracking-wide border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all w-full sm:w-auto"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 View My Work
               </motion.button>
               <motion.button
                 onClick={scrollToContact}
-                className="bg-white text-black font-black px-6 py-3 text-base lg:px-8 lg:py-4 lg:text-lg uppercase tracking-wide border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-300 transition-all"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="bg-white text-black font-black px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base lg:text-lg uppercase tracking-wide border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-300 transition-all w-full sm:w-auto"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 Get In Touch
               </motion.button>
+            </motion.div>
+          </div>
+
+          {/* Side Content - Second on mobile */}
+          <div className="w-full lg:col-span-4 space-y-4 lg:space-y-6">
+            {/* Profile Card */}
+            <motion.div
+              initial={{ x: -50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-4 lg:p-6"
+              whileHover={{ scale: 1.02, rotate: -0.5 }}
+            >
+              <div className="flex items-center gap-3 lg:gap-4 mb-4">
+                <div className="w-12 h-12 lg:w-16 lg:h-16 bg-black border-2 lg:border-4 border-black flex items-center justify-center flex-shrink-0">
+                  <div className="w-6 h-6 lg:w-8 lg:h-8 bg-white"></div>
+                </div>
+                <div className="min-w-0">
+                  <h3 className="font-black text-sm lg:text-lg uppercase tracking-wide text-black truncate">
+                    Aliyon Tembo
+                  </h3>
+                  <p className="font-bold text-xs lg:text-base text-black">UX Designer</p>
+                </div>
+              </div>
+              <div className="bg-green-300 border-2 border-black p-2 lg:p-3">
+                <p className="font-black text-xs lg:text-sm uppercase tracking-wide text-black text-center">
+                  Available for Projects
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-3 lg:gap-4">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ y: 30, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                  className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-3 lg:p-4 text-center"
+                  whileHover={{ scale: 1.05, rotate: index % 2 === 0 ? 1 : -1 }}
+                >
+                  <div className="text-black mb-1 lg:mb-2 flex justify-center">{stat.icon}</div>
+                  <div className="font-black text-lg lg:text-2xl text-black mb-1">{stat.value}</div>
+                  <div className="font-bold text-[9px] lg:text-xs text-black uppercase tracking-wide leading-tight">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Design Tools */}
+            <motion.div
+              initial={{ x: -30, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1 }}
+              className="bg-purple-300 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-4 lg:p-6"
+            >
+              <h3 className="font-black text-base lg:text-lg uppercase tracking-wide text-black mb-3 lg:mb-4">
+                Toolkit
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {["Figma", "Sketch", "Principle", "Miro", "Notion"].map((tool, index) => (
+                  <motion.span
+                    key={tool}
+                    className="bg-black text-white px-2 py-1 lg:px-3 lg:py-1 font-black text-xs lg:text-sm uppercase tracking-wide border-2 border-black"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.3, delay: 1.2 + index * 0.1 }}
+                    whileHover={{ scale: 1.1, backgroundColor: "#EF4444" }}
+                  >
+                    {tool}
+                  </motion.span>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>
