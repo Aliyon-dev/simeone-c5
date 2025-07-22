@@ -2,6 +2,7 @@ import type { Project } from "@/types/portfolio"
 
 export const projects: Project[] = [
   {
+
   id: "zitfuse",
   title: "ZitFuse",
   description:
@@ -95,8 +96,6 @@ export const projects: Project[] = [
     },
   ],
 }
-
-
 ]
 
 // Export both for compatibility
