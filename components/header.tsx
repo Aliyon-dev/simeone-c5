@@ -10,6 +10,17 @@ interface HeaderProps {
 }
 
 export function Header({ designerName = "Aliyon", title = "Designer" }: HeaderProps) {
+  const handleWorkWithMe = () => {
+    const contactSection = document.getElementById("contact")
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" })
+    } else {
+      // If no contact section exists, open email client
+      window.location.href =
+        "mailto:aliyon@example.com?subject=Let's work together&body=Hi Aliyon, I'd love to discuss a potential project with you."
+    }
+  }
+
   return (
     <motion.header
       initial={{ y: -20, opacity: 0 }}
@@ -53,7 +64,10 @@ export function Header({ designerName = "Aliyon", title = "Designer" }: HeaderPr
           whileTap={{ scale: 0.95 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
         >
-          <Button className="bg-red-500 hover:bg-red-600 text-white font-bold px-8 py-3 text-lg uppercase tracking-wide border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
+          <Button
+            onClick={handleWorkWithMe}
+            className="bg-red-500 hover:bg-red-600 text-white font-bold px-8 py-3 text-lg uppercase tracking-wide border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
+          >
             Work with me
           </Button>
         </motion.div>
