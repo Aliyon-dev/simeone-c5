@@ -142,26 +142,48 @@ export default function FinanceFlowProject() {
 
   const journeySteps = [
     {
-      phase: "Discovery",
-      actions: ["Opens E-learning app", "Looks for video content", "Searches through menu"],
-      thoughts: ["Where are the course materials button?", "This should be easier to find"],
-      emotions: "frustrated" as const,
-      opportunities: ["Make transfer more prominent", "Improve navigation hierarchy"],
-    },
-    {
-      phase: "Setup",
-      actions: ["Finds transfer option", "Enters recipient details", "Selects amount"],
-      thoughts: ["Finally found it", "Hope this works quickly"],
-      emotions: "neutral" as const,
-      opportunities: ["Streamline recipient selection", "Add quick amount presets"],
-    },
-    {
-      phase: "Completion",
-      actions: ["Reviews details", "Confirms transfer", "Waits for confirmation"],
-      thoughts: ["Did it go through?", "Why is this taking so long?"],
-      emotions: "frustrated" as const,
-      opportunities: ["Provide real-time feedback", "Show clear success states"],
-    },
+  phase: "Onboarding",
+  actions: ["Downloads Zitfuse app", "Creates account", "Explores subject catalog"],
+  thoughts: ["Looks promising", "Hope it has my exam content"],
+  emotions: "curious" as const,
+  opportunities: ["Add course recommendation engine", "Highlight popular subjects upfront"],
+},
+{
+  phase: "First Use",
+  actions: ["Selects a subject", "Accesses lesson", "Downloads past papers"],
+  thoughts: ["This is helpful", "Nice that I can use it offline"],
+  emotions: "satisfied" as const,
+  opportunities: ["Introduce guided walkthrough", "Gamify first few actions for engagement"],
+},
+{
+  phase: "Revision Flow",
+  actions: ["Takes a quiz", "Checks instant feedback", "Bookmarks tough questions"],
+  thoughts: ["This feels like real exam prep", "I need more of these tests"],
+  emotions: "motivated" as const,
+  opportunities: ["Auto-suggest more quizzes based on performance", "Allow custom quiz generation"],
+},
+{
+  phase: "Community Interaction",
+  actions: ["Asks a question in forum", "Replies to a peer", "Likes tutor comment"],
+  thoughts: ["Good to see others studying", "This is encouraging"],
+  emotions: "connected" as const,
+  opportunities: ["Push notifications for active threads", "Highlight expert responses"],
+},
+{
+  phase: "Subscription Decision",
+  actions: ["Views pricing", "Compares course options", "Proceeds to payment"],
+  thoughts: ["K65 is fair", "Do I really need all subjects now?"],
+  emotions: "hesitant" as const,
+  opportunities: ["Offer trial or bundle discount", "Provide testimonial popups at checkout"],
+},
+{
+  phase: "Long-Term Use",
+  actions: ["Completes a module", "Gets progress badge", "Shares referral link"],
+  thoughts: ["I’ve made real progress", "Let me tell my friends"],
+  emotions: "accomplished" as const,
+  opportunities: ["Unlock social sharing incentives", "Show monthly learning summary"],
+},
+
   ]
 
   const designSystemData = {
