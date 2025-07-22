@@ -96,7 +96,7 @@ export default function FinanceFlowProject() {
     },
     {
       src: "/placeholder.svg?height=600&width=400",
-      alt: "FinanceFlow dashboard design",
+      alt: "Zitfuse design",
       caption: "Redesigned dashboard with improved information hierarchy",
     },
   ]
@@ -120,8 +120,8 @@ export default function FinanceFlowProject() {
     avatar: "/placeholder.svg?height=80&width=80",
   },
   {
-    name: "Mike Rodriguez",
-    age: "35",
+    name: "Mike Tembo",
+    age: "25",
     occupation: "Part-Time Student & Working Professional",
     bio: "A busy professional pursuing a degree while managing work commitments. Needs flexibility and clarity in learning.",
     goals: [
@@ -192,7 +192,7 @@ export default function FinanceFlowProject() {
         image: "/placeholder.svg?height=200&width=300",
       },
       {
-        name: "Transaction Card",
+        name: "Course Card",
         description: "Individual transaction display",
         image: "/placeholder.svg?height=200&width=300",
       },
@@ -329,13 +329,13 @@ export default function FinanceFlowProject() {
 
       <ProjectHero
         title="ZitFuse Mobile App Redesign"
-        subtitle="Redesigning mobile banking to make financial management faster, simpler, and more accessible for everyday users."
+        subtitle="Redesigning Zitfuse Ed-tech Application to make Learning faster, simpler, and more accessible for everyday University Students."
         category="Mobile App"
         year="2024"
         duration="4 months"
         role="Lead UX Designer"
         tools={["Figma", "Principle", "Maze", "Miro"]}
-        heroImage="/placeholder.svg?height=600&width=1200"
+        heroImage="/zitfuse-hero.png?height=600&width=1200"
       />
 
       <ProjectSection title="The Challenge" backgroundColor="white" index={0}>
@@ -470,7 +470,7 @@ export default function FinanceFlowProject() {
         image="/placeholder.svg?height=400&width=600"
       />
 
-      <Footer designerName="Alex Morgan" />
+      <Footer designerName="Aliyon Tembo" />
     </motion.div>
   )
 }
