@@ -18,7 +18,6 @@ export const projects: Project[] = [
     id: "smartcast",
     title: "SmartCast Voting System",
     description:
-
       "Developed a secure, decentralized voting system that leverages blockchain to ensure transparency, auditability, and voter anonymity in school and organizational elections.",
     image: "/smart-cast.jpg?height=400&width=600",
     imageAlt: "SmartCast voting interface",
@@ -28,8 +27,8 @@ export const projects: Project[] = [
     gallery: [
       {
         src: "/placeholder.svg?height=600&width=800",
-        alt: "EcoMarket homepage design",
-        caption: "Homepage featuring sustainable product recommendations",
+        alt: "SmartCast dashboard",
+        caption: "Admin dashboard for election setup",
         category: "Web Design",
       },
       {
@@ -63,14 +62,12 @@ export const projects: Project[] = [
         category: "Design System",
       },
     ],
-    
   },
-  
+
   {
     id: "fynt",
     title: "Fynt Personal Finance Tracker",
     description:
-
       "Built a lightweight personal finance tool that helps users track income, expenses, and savings goals with visual insights and budgeting recommendations powered by AI.",
     image: "/Fynt.jpg?height=400&width=600",
     imageAlt: "Fynt finance tracking dashboard",
@@ -81,8 +78,8 @@ export const projects: Project[] = [
     gallery: [
       {
         src: "/placeholder.svg?height=600&width=800",
-        alt: "TeamSync dashboard",
-        caption: "Main dashboard with project overview",
+        alt: "Fynt dashboard",
+        caption: "Main dashboard with spending overview",
         category: "Dashboard",
       },
       {
@@ -111,5 +108,10 @@ export const projects: Project[] = [
       },
     ],
   },
-      
 ]
+
+/* --------------------------------------------------
+   Compatibility export — some components expect
+   `portfolioData` instead of `projects`
+--------------------------------------------------- */
+export const portfolioData = projects
