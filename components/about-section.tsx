@@ -23,10 +23,8 @@ profileImageAlt = "Aliyon Tembo - Computer Engineer & Product Builder",
 
 }: AboutSectionProps) {
   const socialLinks = [
-    { platform: "email", icon: <Mail className="w-6 h-6" />, url: "mailto:hello@designer.com" },
-    { platform: "linkedin", icon: <Linkedin className="w-6 h-6" />, url: "#" },
-    { platform: "twitter", icon: <Twitter className="w-6 h-6" />, url: "#" },
-  ]
+    { platform: "email", icon: <Mail className="w-6 h-6" />, url: "temboaliyon@gmail.com" },
+    { platform: "linkedin", icon: <Linkedin className="w-6 h-6" />, url: "www.linkedin.com/in/aliyon" },  ]
 
   return (
     <section id="about" className="px-8 py-32 md:px-16 lg:px-24 bg-white">
