@@ -120,8 +120,8 @@ export default function FinanceFlowProject() {
     avatar: "/placeholder.svg?height=80&width=80",
   },
   {
-    name: "Mike Rodriguez",
-    age: "35",
+    name: "Mike Tembo",
+    age: "25",
     occupation: "Part-Time Student & Working Professional",
     bio: "A busy professional pursuing a degree while managing work commitments. Needs flexibility and clarity in learning.",
     goals: [
@@ -143,8 +143,8 @@ export default function FinanceFlowProject() {
   const journeySteps = [
     {
       phase: "Discovery",
-      actions: ["Opens banking app", "Looks for transfer option", "Searches through menu"],
-      thoughts: ["Where is the transfer button?", "This should be easier to find"],
+      actions: ["Opens E-learning app", "Looks for video content", "Searches through menu"],
+      thoughts: ["Where are the course materials button?", "This should be easier to find"],
       emotions: "frustrated" as const,
       opportunities: ["Make transfer more prominent", "Improve navigation hierarchy"],
     },
