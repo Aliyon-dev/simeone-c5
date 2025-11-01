@@ -1,7 +1,7 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { Users, Coffee, Award, Zap } from "lucide-react"
+import { motion } from "framer-motion" // Import motion from framer-motion
 
 interface HeroProps {
   greeting?: string
