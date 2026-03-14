@@ -1,152 +1,133 @@
 "use client"
 
-import Link from "next/link"
-import Script from "next/script"
 import { motion } from "framer-motion"
-import { Rocket, Orbit, Sparkles, Telescope } from "lucide-react"
+import { ArrowUpRight, MousePointer2, Sparkles, Waves, Zap } from "lucide-react"
 
-import { CosmicScene } from "@/components/cosmic-scene"
-
-const missions = [
+const showcaseCards = [
   {
-    title: "Orbit Commerce",
-    summary: "Redesigned a checkout constellation for faster conversion and lower drop-off.",
-    impact: "+34% conversion",
+    title: "Pulse Interactions",
+    description: "Snappy hover states and progressive motion that feels alive without distracting from content.",
   },
   {
-    title: "Nebula Studio",
-    summary: "Built a modular design system that aligned product and marketing galaxies.",
-    impact: "2.4x faster delivery",
+    title: "Neon Storytelling",
+    description: "Layered gradients, glassmorphism cards, and flowing lines that frame each section.",
   },
   {
-    title: "Stellar Analytics",
-    summary: "Crafted a data storytelling dashboard with immersive interactions.",
-    impact: "58% better feature adoption",
+    title: "Performance First",
+    description: "Built with lightweight effects and reusable patterns so the interface scales cleanly.",
   },
 ]
 
-const timeline = [
-  "Discovery through deep-space user interviews",
-  "Wireframing trajectories across flows and states",
-  "Prototype launches with motion-rich UI systems",
-  "Post-launch telemetry and iterative optimization",
+const stats = [
+  { value: "180ms", label: "Micro-interaction response" },
+  { value: "98", label: "Lighthouse accessibility target" },
+  { value: "24/7", label: "Visual brand consistency" },
 ]
 
-export default function Portfolio() {
+export default function HomePage() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-[#040612] text-slate-100">
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" strategy="afterInteractive" />
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" strategy="afterInteractive" />
+    <main className="relative min-h-screen overflow-hidden bg-black text-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_15%,rgba(57,255,20,0.2),transparent_35%),radial-gradient(circle_at_85%_0%,rgba(57,255,20,0.15),transparent_30%),radial-gradient(circle_at_50%_80%,rgba(30,30,30,0.85),transparent_60%)]" />
+      <div className="grid-overlay pointer-events-none absolute inset-0 opacity-40" />
+      <div className="neon-orb neon-orb-left" />
+      <div className="neon-orb neon-orb-right" />
 
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(146,126,255,.28),transparent_38%),radial-gradient(circle_at_80%_10%,rgba(74,195,255,.2),transparent_34%),radial-gradient(circle_at_50%_80%,rgba(76,93,255,.18),transparent_42%)]" />
-      <CosmicScene />
-
-      <section className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col justify-center px-6 py-20 md:px-10">
-        <motion.p
+      <section className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col justify-center px-6 py-16 md:px-10">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm uppercase tracking-[0.2em] text-cyan-200"
+          className="mb-8 flex w-fit items-center gap-2 rounded-full border border-[#39ff14]/40 bg-[#39ff14]/10 px-4 py-2 text-xs uppercase tracking-[0.2em] text-[#b7ffab]"
         >
-          <Sparkles className="h-4 w-4" /> Galactic Product Designer
-        </motion.p>
+          <Sparkles className="h-3.5 w-3.5" /> Inspired by Appy Camper style motion
+        </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 35 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.8 }}
-          className="max-w-4xl text-5xl font-black leading-[0.95] tracking-tight md:text-7xl"
+          transition={{ delay: 0.1, duration: 0.75 }}
+          className="max-w-4xl text-5xl font-black leading-[0.92] tracking-tight md:text-7xl"
         >
-          Building space-themed digital experiences with bold motion and cosmic precision.
+          Neon black digital experiences with motion that feels electric.
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 35 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-          className="mt-8 max-w-2xl text-lg text-slate-300 md:text-xl"
+          transition={{ delay: 0.2, duration: 0.75 }}
+          className="mt-7 max-w-2xl text-lg text-zinc-300"
         >
-          I design future-facing products where storytelling, interaction, and performance align like constellations. This portfolio was fully refreshed with cinematic visuals, animated depth, and a modern space aesthetic.
+          A bold landing concept with energetic transitions, glowing accents, and modern typography. Designed to capture the playful, high-craft animation energy you liked—while keeping the palette strictly neon green and black.
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 35 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
+          transition={{ delay: 0.3, duration: 0.75 }}
           className="mt-10 flex flex-wrap gap-4"
         >
-          <Link href="#missions" className="rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-cyan-300">
-            Explore Missions
-          </Link>
-          <Link href="#contact" className="rounded-full border border-white/30 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/15">
-            Contact Ground Control
-          </Link>
+          <button className="group inline-flex items-center gap-2 rounded-full border border-[#39ff14]/50 bg-[#39ff14] px-6 py-3 text-sm font-semibold text-black transition hover:scale-[1.02] hover:shadow-[0_0_28px_rgba(57,255,20,0.6)]">
+            Start a Project <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </button>
+          <button className="inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900/70 px-6 py-3 text-sm font-semibold text-white transition hover:border-[#39ff14]/50 hover:text-[#d4ffc9]">
+            <MousePointer2 className="h-4 w-4" /> View Motion Demo
+          </button>
         </motion.div>
       </section>
 
-      <section id="missions" className="relative mx-auto w-full max-w-6xl px-6 pb-16 md:px-10">
-        <div className="mb-8 flex items-center gap-3 text-cyan-200">
-          <Rocket className="h-5 w-5" />
-          <h2 className="text-2xl font-bold md:text-4xl">Featured Missions</h2>
-        </div>
-        <div className="grid gap-6 md:grid-cols-3">
-          {missions.map((mission, index) => (
+      <section className="relative mx-auto w-full max-w-6xl px-6 pb-14 md:px-10">
+        <div className="grid gap-5 md:grid-cols-3">
+          {showcaseCards.map((card, index) => (
             <motion.article
-              key={mission.title}
-              initial={{ opacity: 0, y: 30 }}
+              key={card.title}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ delay: index * 0.08, duration: 0.55 }}
-              className="rounded-3xl border border-white/15 bg-white/5 p-6 backdrop-blur-sm"
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ delay: index * 0.08, duration: 0.5 }}
+              className="group rounded-3xl border border-zinc-800 bg-zinc-950/70 p-6 shadow-[inset_0_0_0_1px_rgba(57,255,20,0.06)] backdrop-blur"
             >
-              <p className="text-xs uppercase tracking-[0.2em] text-cyan-200">{mission.impact}</p>
-              <h3 className="mt-3 text-2xl font-bold">{mission.title}</h3>
-              <p className="mt-3 text-slate-300">{mission.summary}</p>
+              <h3 className="text-2xl font-bold text-[#dcffd4] transition group-hover:text-[#39ff14]">{card.title}</h3>
+              <p className="mt-3 text-zinc-400">{card.description}</p>
+              <div className="mt-5 h-1 w-16 rounded-full bg-[#39ff14]/40 transition-all group-hover:w-24 group-hover:bg-[#39ff14]" />
             </motion.article>
           ))}
         </div>
       </section>
 
-      <section className="relative mx-auto grid w-full max-w-6xl gap-10 px-6 py-20 md:grid-cols-2 md:px-10">
-        <motion.div
-          initial={{ opacity: 0, x: -25 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
-          className="rounded-3xl border border-white/15 bg-gradient-to-b from-[#0a1124] to-[#050812] p-8"
-        >
-          <h3 className="mb-6 flex items-center gap-2 text-2xl font-bold text-cyan-200">
-            <Orbit className="h-5 w-5" /> Navigation Process
-          </h3>
-          <ul className="space-y-4 text-slate-300">
-            {timeline.map((step) => (
-              <li key={step} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
-                {step}
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-
-        <motion.div
-          id="contact"
-          initial={{ opacity: 0, x: 25 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
-          className="rounded-3xl border border-cyan-300/25 bg-cyan-400/10 p-8"
-        >
-          <h3 className="mb-5 flex items-center gap-2 text-2xl font-bold">
-            <Telescope className="h-5 w-5 text-cyan-200" /> Ready for Launch?
-          </h3>
-          <p className="text-slate-200">
-            Let&apos;s co-create your next space-grade digital experience—crafted with strategy, motion, and visual gravity.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3 text-sm">
-            <span className="rounded-full border border-white/30 px-4 py-2">UX Strategy</span>
-            <span className="rounded-full border border-white/30 px-4 py-2">Interaction Design</span>
-            <span className="rounded-full border border-white/30 px-4 py-2">Creative Direction</span>
+      <section className="relative mx-auto w-full max-w-6xl px-6 pb-24 md:px-10">
+        <div className="rounded-3xl border border-[#39ff14]/35 bg-zinc-950/60 p-8 md:p-10">
+          <div className="mb-8 flex items-center gap-2 text-[#b6ffa8]">
+            <Waves className="h-5 w-5" />
+            <p className="text-sm uppercase tracking-[0.2em]">Neon System Signals</p>
           </div>
-        </motion.div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, scale: 0.96 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ delay: index * 0.08, duration: 0.45 }}
+                className="rounded-2xl border border-zinc-800 bg-black/60 p-6"
+              >
+                <p className="text-3xl font-extrabold text-[#39ff14] md:text-4xl">{stat.value}</p>
+                <p className="mt-2 text-zinc-400">{stat.label}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5 }}
+            className="mt-10 flex items-center gap-2 text-sm text-zinc-300"
+          >
+            <Zap className="h-4 w-4 text-[#39ff14]" />
+            This concept is ready to expand into sections like Services, Work, and Contact with matching animation language.
+          </motion.div>
+        </div>
       </section>
     </main>
   )
