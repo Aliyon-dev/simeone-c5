@@ -8,7 +8,6 @@ declare global {
   interface Window {
     gsap: any
     ScrollTrigger: any
-    Lenis: any
   }
 }
 
@@ -73,34 +72,19 @@ export function HeroSection() {
   const textRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    let lenis: any
-    let animationFrame = 0
-
     const initializeMotion = async () => {
       await Promise.all([
         loadScript("https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"),
         loadScript("https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"),
-        loadScript("https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"),
       ])
 
-      if (!sectionRef.current || !window.gsap || !window.ScrollTrigger || !window.Lenis) return
+      if (!sectionRef.current || !window.gsap || !window.ScrollTrigger) return
 
       const gsap = window.gsap
       const ScrollTrigger = window.ScrollTrigger
 
       gsap.registerPlugin(ScrollTrigger)
 
-      lenis = new window.Lenis({
-        duration: 1.1,
-        smoothWheel: true,
-      })
-
-      const raf = (time: number) => {
-        lenis.raf(time)
-        animationFrame = requestAnimationFrame(raf)
-      }
-
-      animationFrame = requestAnimationFrame(raf)
 
       if (textRef.current) {
         gsap.from(textRef.current.children, {
@@ -137,8 +121,6 @@ export function HeroSection() {
     initializeMotion()
 
     return () => {
-      if (animationFrame) cancelAnimationFrame(animationFrame)
-      if (lenis) lenis.destroy()
       if (window.ScrollTrigger) {
         window.ScrollTrigger.getAll().forEach((trigger: any) => trigger.kill())
       }
