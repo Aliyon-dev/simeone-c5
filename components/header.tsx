@@ -13,7 +13,7 @@ export function Header({ designerName = "Aliyon", title = "Designer" }: HeaderPr
   const handleWorkWithMe = () => {
     const contactSection = document.getElementById("contact")
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" })
+      contactSection.scrollIntoView()
     } else {
       // If no contact section exists, open email client
       window.location.href =
