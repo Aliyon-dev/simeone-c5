@@ -109,17 +109,20 @@ export function PortfolioLandingPage() {
   }, [])
 
   return (
-    <main className="bg-[#0B0F14] text-white">
-      <Header />
-      <HeroSection />
-      <IntroMessageSection/>
-      <FeaturedWorkSection />
-      <ServicesSection />
-      <AboutSection />
-      <ImpactSection />
-      <TestimonialsSection />
-      <ContactSection />
-      <Footer />
+    <main className="relative overflow-hidden bg-[#0B0F14] text-white">
+      <div className="site-grid-lines pointer-events-none absolute inset-0 opacity-70" aria-hidden="true" />
+      <div className="relative z-10">
+        <Header />
+        <HeroSection />
+        <IntroMessageSection />
+        <FeaturedWorkSection />
+        <ServicesSection />
+        <AboutSection />
+        <ImpactSection />
+        <TestimonialsSection />
+        <ContactSection />
+        <Footer />
+      </div>
     </main>
   )
 }
