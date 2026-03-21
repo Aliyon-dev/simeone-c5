@@ -1,75 +1,45 @@
 "use client"
 
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 
-interface HeaderProps {
-  designerName?: string
-  title?: string
-}
-
-export function Header({ designerName = "Aliyon", title = "Designer" }: HeaderProps) {
-  const handleWorkWithMe = () => {
-    const contactSection = document.getElementById("contact")
-    if (contactSection) {
-      contactSection.scrollIntoView()
-    } else {
-      // If no contact section exists, open email client
-      window.location.href =
-        "mailto:aliyon@example.com?subject=Let's work together&body=Hi Aliyon, I'd love to discuss a potential project with you."
-    }
-  }
-
+export function Header() {
   return (
     <motion.header
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="flex items-center justify-between px-8 py-8 md:px-16 lg:px-24"
+      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-6 md:px-12 lg:px-16 bg-transparent"
     >
-      <motion.div
-        className="flex items-center gap-4"
-        whileHover={{ scale: 1.02 }}
-        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-      >
-        <div className="w-12 h-12 bg-black border-4 border-black flex items-center justify-center">
-          <div className="w-4 h-4 bg-white"></div>
-        </div>
-        <div>
-          <div className="text-sm font-bold text-black uppercase tracking-wider">{title}</div>
-          <div className="text-sm font-bold text-black uppercase tracking-wider">{designerName}</div>
-        </div>
+      {/* Left: Brand */}
+      <motion.div whileHover={{ opacity: 0.7 }} transition={{ duration: 0.3 }}>
+        <span className="text-lg font-bold tracking-tight text-white">Aliyon</span>
       </motion.div>
 
-      <nav className="hidden md:flex items-center gap-12">
-        <motion.div whileHover={{ y: -2 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+      {/* Right: Navigation */}
+      <nav className="flex items-center gap-8 text-sm font-medium">
+        {/* Free Audit */}
+        <motion.div whileHover={{ opacity: 0.7 }} transition={{ duration: 0.3 }}>
           <Link
-            href="#work"
-            className="text-black font-bold text-lg hover:text-gray-600 transition-colors uppercase tracking-wide"
+            href="#audit"
+            className="relative text-white/70 hover:text-white transition-colors duration-300
+            after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0
+            after:bg-white after:transition-all after:duration-300 hover:after:w-full"
           >
             Work
           </Link>
         </motion.div>
-        <motion.div whileHover={{ y: -2 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+
+        {/* Get in Touch */}
+        <motion.div whileHover={{ opacity: 0.7 }} transition={{ duration: 0.3 }}>
           <Link
-            href="#about"
-            className="text-black font-bold text-lg hover:text-gray-600 transition-colors uppercase tracking-wide"
+            href="#contact"
+            className="relative text-white/70 hover:text-white transition-colors duration-300
+            after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0
+            after:bg-white after:transition-all after:duration-300 hover:after:w-full"
           >
-            About
+            Get in Touch
           </Link>
-        </motion.div>
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ type: "spring", stiffness: 400, damping: 10 }}
-        >
-          <Button
-            onClick={handleWorkWithMe}
-            className="bg-red-500 hover:bg-red-600 text-white font-bold px-8 py-3 text-lg uppercase tracking-wide border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
-          >
-            Work with me
-          </Button>
         </motion.div>
       </nav>
     </motion.header>

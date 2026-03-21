@@ -5,11 +5,13 @@ import { useEffect } from "react"
 import { AboutSection } from "@/components/about-section-premium"
 import { ContactSection } from "@/components/contact-section"
 import { FeaturedWorkSection } from "@/components/featured-work-section"
+import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { ImpactSection } from "@/components/impact-section"
 import { Footer } from "@/components/portfolio-footer"
 import { ServicesSection } from "@/components/services-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
+import { IntroMessageSection } from "./Intro-message"
 
 declare global {
   interface Window {
@@ -107,8 +109,10 @@ export function PortfolioLandingPage() {
   }, [])
 
   return (
-    <main className="bg-[#050816] text-white">
+    <main className="bg-[#0B0F14] text-white">
+      <Header />
       <HeroSection />
+      <IntroMessageSection/>
       <FeaturedWorkSection />
       <ServicesSection />
       <AboutSection />

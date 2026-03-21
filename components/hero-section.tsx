@@ -1,8 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-
-import { FloatingCard } from "@/components/floating-card"
+import { InfiniteScrollBackground } from "@/components/infinite-scroll-background"
 
 declare global {
   interface Window {
@@ -11,49 +10,9 @@ declare global {
   }
 }
 
-const cards = [
-  {
-    title: "Editorial Landing",
-    tag: "Case Study",
-    className: "left-[4%] top-[14%] -rotate-6 hidden sm:block",
-    size: "w-44",
-  },
-  {
-    title: "Motion System",
-    tag: "Design",
-    className: "right-[9%] top-[12%] rotate-6",
-    size: "w-48",
-  },
-  {
-    title: "Brand Narrative",
-    tag: "Strategy",
-    className: "left-[12%] bottom-[18%] rotate-[7deg] hidden md:block",
-    size: "w-52",
-  },
-  {
-    title: "Fintech Product",
-    tag: "Interface",
-    className: "right-[8%] bottom-[16%] -rotate-[8deg]",
-    size: "w-44",
-  },
-  {
-    title: "Immersive Campaign",
-    tag: "Creative",
-    className: "left-[24%] top-[6%] rotate-[4deg] hidden lg:block",
-    size: "w-40",
-  },
-  {
-    title: "AI Dashboard",
-    tag: "Prototype",
-    className: "right-[22%] bottom-[6%] rotate-[5deg] hidden lg:block",
-    size: "w-48",
-  },
-]
-
 const loadScript = (src: string) =>
   new Promise<void>((resolve, reject) => {
     const existing = document.querySelector(`script[src='${src}']`)
-
     if (existing) {
       resolve()
       return
@@ -70,57 +29,96 @@ const loadScript = (src: string) =>
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement | null>(null)
   const textRef = useRef<HTMLDivElement | null>(null)
+  const backgroundWrapRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
+    let mounted = true
+    let ctx: any = null
+
     const initializeMotion = async () => {
-      await Promise.all([
-        loadScript("https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"),
-        loadScript("https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"),
-      ])
+      try {
+        await Promise.all([
+          loadScript("https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"),
+          loadScript("https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"),
+        ])
 
-      if (!sectionRef.current || !window.gsap || !window.ScrollTrigger) return
+        if (
+          !mounted ||
+          !sectionRef.current ||
+          !textRef.current ||
+          !backgroundWrapRef.current ||
+          !window.gsap ||
+          !window.ScrollTrigger
+        ) {
+          return
+        }
 
-      const gsap = window.gsap
-      const ScrollTrigger = window.ScrollTrigger
+        const gsap = window.gsap
+        const ScrollTrigger = window.ScrollTrigger
 
-      gsap.registerPlugin(ScrollTrigger)
+        gsap.registerPlugin(ScrollTrigger)
 
+        ctx = gsap.context(() => {
+          const subtitle = textRef.current?.querySelector(".hero-subtitle")
+          const headlineLines = textRef.current?.querySelectorAll(".headline-line")
 
-      if (textRef.current) {
-        gsap.from(textRef.current.children, {
-          opacity: 0,
-          y: 35,
-          duration: 1,
-          stagger: 0.12,
-          ease: "power3.out",
-        })
+          // Initial states
+          gsap.set(headlineLines, { opacity: 0, y: 70 })
+          gsap.set(subtitle, { opacity: 0, y: 20 })
+
+          // Intro timeline
+          const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
+
+          tl.to(subtitle, {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+          }).to(
+            headlineLines,
+            {
+              opacity: 1,
+              y: 0,
+              duration: 1,
+              stagger: 0.14,
+            },
+            "-=0.2"
+          )
+
+          // Blur + fade background on scroll
+          gsap.to(backgroundWrapRef.current, {
+            filter: "blur(20px)",
+            opacity: 0.28,
+            ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top top",
+              end: "bottom top",
+              scrub: true,
+            },
+          })
+
+          // Slight text lift on scroll
+          gsap.to(textRef.current, {
+            y: -40,
+            ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top top",
+              end: "bottom top",
+              scrub: true,
+            },
+          })
+        }, sectionRef)
+      } catch (error) {
+        console.error("Failed to initialize hero animations:", error)
       }
-
-      gsap.utils.toArray<HTMLElement>(".floating-card").forEach((card, index) => {
-        gsap.to(card, {
-          y: index % 2 === 0 ? -16 : -12,
-          duration: 3.2 + index * 0.35,
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
-        })
-
-        gsap.to(card, {
-          yPercent: 14,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: true,
-          },
-        })
-      })
     }
 
     initializeMotion()
 
     return () => {
+      mounted = false
+      if (ctx) ctx.revert()
       if (window.ScrollTrigger) {
         window.ScrollTrigger.getAll().forEach((trigger: any) => trigger.kill())
       }
@@ -130,30 +128,43 @@ export function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#050816] px-6 text-white"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#0B0F14] px-6 pt-24 text-white"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_40%_30%,rgba(59,130,246,0.16),transparent_42%),radial-gradient(circle_at_70%_65%,rgba(139,92,246,0.12),transparent_40%)]" />
-
-      <div ref={textRef} className="relative z-10 flex flex-col items-center text-center">
-        <p className="w-full max-w-4xl text-left text-xs font-medium uppercase tracking-[0.25em] text-white/65 md:text-sm">
-          I build
-        </p>
-        <h1 className="mt-2 text-5xl font-black uppercase leading-[0.9] tracking-[-0.03em] sm:text-7xl md:text-8xl lg:text-9xl">
-          HUMAN CENTERED
-        </h1>
-        <p className="mt-3 w-full max-w-4xl text-right text-2xl font-light lowercase tracking-tight text-white/80 sm:text-3xl md:text-4xl">
-          tech
-        </p>
+      {/* Background */}
+      <div
+        ref={backgroundWrapRef}
+        className="absolute inset-0 z-0 opacity-70 will-change-transform"
+      >
+        <InfiniteScrollBackground columnCount={3} />
+        <div className="absolute inset-0 bg-[#0B0F14]/30" />
       </div>
 
-      {cards.map((card, index) => (
-        <FloatingCard
-          key={card.title}
-          title={card.title}
-          tag={card.tag}
-          className={`floating-card ${card.size} ${card.className} ${index > 2 ? "hidden sm:block" : ""}`}
-        />
-      ))}
+      {/* Foreground */}
+      <div
+        ref={textRef}
+        className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center text-center"
+      >
+        <div className="hero-subtitle mb-6 md:mb-8">
+          <p className="text-[11px] font-light uppercase tracking-[0.32em] text-white/55 md:text-sm">
+            (I Build)
+          </p>
+        </div>
+
+        <div className="space-y-1 md:space-y-2">
+          <h1 className="headline-line text-5xl font-black uppercase leading-[0.9] tracking-[-0.04em] sm:text-6xl md:text-8xl lg:text-[9rem]">
+            HUMAN <span className="align-middle text-xl md:text-4xl lg:text-5xl">✣</span>
+          </h1>
+
+          <h2 className="headline-line text-5xl font-black uppercase leading-[0.9] tracking-[-0.04em] sm:text-6xl md:text-8xl lg:text-[9rem]">
+            CENTERED
+          </h2>
+
+          <h3 className="headline-line text-5xl font-black uppercase leading-[0.9] tracking-[-0.04em] sm:text-6xl md:text-8xl lg:text-[9rem]">
+            <span className="mr-2 align-middle text-2xl md:text-4xl lg:text-5xl">→</span>
+            TECH
+          </h3>
+        </div>
+      </div>
     </section>
   )
 }
