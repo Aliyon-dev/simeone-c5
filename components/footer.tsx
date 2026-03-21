@@ -1,57 +1,29 @@
 "use client"
-
 import Link from "next/link"
-import { motion } from "framer-motion"
 
-interface FooterProps {
-  designerName?: string
-  year?: number
-  links?: Array<{
-    label: string
-    href: string
-  }>
-}
-
-export function Footer({
-  designerName = "Aliyon Tembo",
-  year = new Date().getFullYear(),
-  links = [
-    { label: "Work", href: "#work" },
-    { label: "About", href: "#about" },
-    { label: "Contact", href: "mailto:hello@alexmorgan.design" },
-  ],
-}: FooterProps) {
+export function Footer() {
   return (
-    <motion.footer
-      className="px-8 py-16 md:px-16 lg:px-24 bg-black border-t-8 border-black"
-      initial={{ y: 50, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-    >
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-        <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-          <p className="text-white font-black text-lg uppercase tracking-wider">
-            © {year} Aliyon Tembo. All rights reserved.
-          </p>
-        </motion.div>
-        <div className="flex items-center gap-8">
-          {links.map((link, index) => (
-            <motion.div
-              key={link.label}
-              whileHover={{ y: -3, scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              <Link
-                href={link.href}
-                className="text-white font-black text-lg uppercase tracking-wider hover:text-yellow-300 transition-colors"
-              >
-                {link.label}
-              </Link>
-            </motion.div>
-          ))}
+    <footer className="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-start gap-8 border-t-2 border-[#FFFF00] bg-[#131313]">
+      <div className="flex flex-col gap-4">
+        <div className="text-xl font-black text-white font-headline">TECHNICAL BRUTALISM</div>
+        <p className="font-space-grotesk text-sm uppercase tracking-[0.1em] text-[#939277] max-w-sm">
+          ©2024 TECHNICAL BRUTALISM. ALL RIGHTS RESERVED. COORDINATES: 40.7128° N, 74.0060° W
+        </p>
+      </div>
+
+      <div className="flex flex-wrap gap-8">
+        <div className="flex flex-col gap-2">
+          <span className="font-headline text-[10px] text-[#FFFF00] uppercase font-bold tracking-widest">Connect</span>
+          <Link href="#" className="font-space-grotesk text-sm uppercase tracking-[0.1em] text-[#939277] hover:text-white hover:underline transition-all">GITHUB</Link>
+          <Link href="#" className="font-space-grotesk text-sm uppercase tracking-[0.1em] text-[#939277] hover:text-white hover:underline transition-all">LINKEDIN</Link>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <span className="font-headline text-[10px] text-[#FFFF00] uppercase font-bold tracking-widest">Resources</span>
+          <Link href="#" className="font-space-grotesk text-sm uppercase tracking-[0.1em] text-[#939277] hover:text-white hover:underline transition-all">READCV</Link>
+          <Link href="#" className="font-space-grotesk text-sm uppercase tracking-[0.1em] text-[#939277] hover:text-white hover:underline transition-all">SOURCE</Link>
         </div>
       </div>
-    </motion.footer>
+    </footer>
   )
 }
