@@ -107,15 +107,6 @@ html {
   mask-image: radial-gradient(circle at center, black 35%, transparent 90%);
 }
 
-.site-grid-lines {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    radial-gradient(circle at 50% 0%, rgba(65, 163, 255, 0.2), transparent 62%);
-  background-size: 44px 44px, 44px 44px, 100% 100%;
-  background-position: center;
-  mask-image: radial-gradient(circle at 50% 12%, black 18%, transparent 72%);
-}
-
 .neon-orb {
   pointer-events: none;
   position: absolute;
